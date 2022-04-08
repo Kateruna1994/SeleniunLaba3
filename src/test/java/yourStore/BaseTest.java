@@ -1,5 +1,6 @@
 package yourStore;
 
+import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,9 +12,7 @@ import pages.MainPage;
 
 public class BaseTest {
     MainPage mainPage = new MainPage();
-    String expectedResult = "Your Account Has Been Created!";
-    String expectedResultAfterClickContinue = "First Name must be between 1 and 32 characters!";
-    String expectedResultCheckTitle = "My Account";
+
 
 
     @BeforeMethod

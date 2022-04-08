@@ -16,15 +16,14 @@ public class RegisterAccountPage extends BasePage {
     private final By clickFieldEnterEmail = By.xpath("//div[@class='form-group']/input[@id='input-email']");
     private final By clickFieldMyPassword = By.xpath("//div[@class='form-group']/input[@id='input-password']");
     private final By clickOnButtonLogin = By.xpath("//input[@type='submit']");
-
-
+    private final By clickFirstName = By.xpath
+            ("//div[@class='col-sm-10']/div[text()='First Name must be between 1 and 32 characters!']");
 
 
     public RegisterAccountPage enterUerName(String name) {
         find(clickFieldUserName).sendKeys(name);
         return this;
     }
-
 
     public RegisterAccountPage enterLastName(String lastName) {
         find(clickFieldLastName).sendKeys(lastName);
@@ -35,47 +34,56 @@ public class RegisterAccountPage extends BasePage {
         find(clickFieldEmail).sendKeys(email);
         return this;
     }
-    public RegisterAccountPage enterEmailAddress(String email){
+
+    public RegisterAccountPage enterEmailAddress(String email) {
         find(clickFieldEnterEmail).sendKeys(email);
         return this;
     }
 
-    public RegisterAccountPage enterPhone(String phone){
+    public RegisterAccountPage enterPhone(String phone) {
         find(clickFieldPhone).sendKeys(phone);
         return this;
     }
 
-    public RegisterAccountPage enterPassword(String password){
+    public RegisterAccountPage enterPassword(String password) {
         find(clickPassword).sendKeys(password);
         return this;
     }
 
-    public RegisterAccountPage enterMyPassword(String password){
-        find(clickFieldMyPassword).sendKeys(password);
+    public RegisterAccountPage enterMyPassword(String myPassword) {
+        find(clickFieldMyPassword).sendKeys(myPassword);
         return this;
     }
 
 
-    public RegisterAccountPage enterBeginPassword(String beginPassword){
+    public RegisterAccountPage enterBeginPassword(String beginPassword) {
         find(clickBeginPassword).sendKeys(beginPassword);
         return this;
     }
 
-    public RegisterAccountPage enterCheckBox(){
+    public RegisterAccountPage clickCheckBox() {
         find(cliclOnTheCheckBox).click();
         return this;
     }
 
-    public ResultPage enterClickButtonContinue(){
-       find(clickOnButtonContinue).click();
-       return new ResultPage();
+    public PersonalCabinetPage clickContinueButton() {
+        find(clickOnButtonContinue).click();
+        return new PersonalCabinetPage();
     }
-    public MyAccount clickButtonLogin(){
+
+    public RegisterAccountPage clickButtonContinueAndCheckForError() {
+        find(clickOnButtonContinue).click();
+        return this;
+    }
+
+    public String checkMessage() {
+        return find(clickFirstName).getText();
+    }
+
+    public MyAccount clickButtonLogin() {
         find(clickOnButtonLogin).click();
         return new MyAccount();
     }
-
-
 
 
 }

@@ -10,7 +10,7 @@ public class MainPage extends BasePage {
             ("//ul[contains(@class,'dropdown-menu')]//a[text()='Login']");
 
 
-    public MainPage enterClickButton(){
+    public MainPage clickButton(){
         find(clickButton).click();
         return this;
     }
