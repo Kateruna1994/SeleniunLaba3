@@ -28,6 +28,6 @@ public class BaseTest {
 
     @AfterMethod
     public void quite(){
-        BasePage.getDriver().quit();
+                BasePage.getDriver().quit();
     }
 }
